@@ -13,7 +13,7 @@
 		var bitis = sayfaBasiResimSayisi;
 
 		for(i=1; i<=sayfaSayisi; i++){
-			//$("ul.pagination").before('<li><a href="#">'+ i +'</a></li>');
+			//burada sayfa numaralarını yazdırıyoruz - we print the page numbers below the page
 			$('<li id="single-image"><a href="javascript:void(0)">'+ i +'</a></li>').insertBefore("li.after");
 		}
 
@@ -29,10 +29,10 @@
 			}
 
 		});	
-
+		//Sol yön butonuna basıldığında -- when click the left arrow button
 		$("li.before").click(function(){
 
-			if(baslangic > 0)
+			if(baslangic > 0) //Gösterilecek resim denetimi yapıyoruz - prevent the exceed negative image number
 			{
 				$("div.thumbnail").hide();
 				for(i=baslangic-sayfaBasiResimSayisi; i<bitis-sayfaBasiResimSayisi; i++){
@@ -47,12 +47,10 @@
 			}
 			
 		});
-
+		//Sağ yön butonuna basıldığında -- when click the right arrow button
 		$("li.after").click(function(){
 			
-			
-			
-			if(bitis <= toplamResim)
+			if(bitis <= toplamResim) //Gösterilecek resim denetimi yapıyoruz - prevent the exceed total image number
 			{
 				$("div.thumbnail").hide();
 				for(i=baslangic+sayfaBasiResimSayisi; i < bitis + sayfaBasiResimSayisi; i++){
